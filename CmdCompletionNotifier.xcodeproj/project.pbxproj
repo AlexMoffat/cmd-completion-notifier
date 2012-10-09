@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D37E14816226D360021D9AF /* Apps-preferences-desktop-notification.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2D37E14716226D360021D9AF /* Apps-preferences-desktop-notification.icns */; };
 		2D8C2661161BCC3C00F306E6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D8C2660161BCC3C00F306E6 /* Cocoa.framework */; };
 		2D8C266B161BCC3C00F306E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2D8C2669161BCC3C00F306E6 /* InfoPlist.strings */; };
 		2D8C266D161BCC3C00F306E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C266C161BCC3C00F306E6 /* main.m */; };
 		2D8C2671161BCC3C00F306E6 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2D8C266F161BCC3C00F306E6 /* Credits.rtf */; };
-		2D8C2674161BCC3C00F306E6 /* ViewControllerLifecycleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C2673161BCC3C00F306E6 /* ViewControllerLifecycleAppDelegate.m */; };
+		2D8C2674161BCC3C00F306E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D8C2673161BCC3C00F306E6 /* AppDelegate.m */; };
 		2D8C2677161BCC3C00F306E6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D8C2675161BCC3C00F306E6 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D37E14716226D360021D9AF /* Apps-preferences-desktop-notification.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = "Apps-preferences-desktop-notification.icns"; path = "../../Downloads/Apps-preferences-desktop-notification.icns"; sourceTree = "<group>"; };
 		2D8C265C161BCC3C00F306E6 /* CmdCompletionNotifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CmdCompletionNotifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8C2660161BCC3C00F306E6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		2D8C2663161BCC3C00F306E6 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -26,8 +28,8 @@
 		2D8C266C161BCC3C00F306E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D8C266E161BCC3C00F306E6 /* CmdCompletionNotifier-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CmdCompletionNotifier-Prefix.pch"; sourceTree = "<group>"; };
 		2D8C2670161BCC3C00F306E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		2D8C2672161BCC3C00F306E6 /* ViewControllerLifecycleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewControllerLifecycleAppDelegate.h; sourceTree = "<group>"; };
-		2D8C2673161BCC3C00F306E6 /* ViewControllerLifecycleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerLifecycleAppDelegate.m; sourceTree = "<group>"; };
+		2D8C2672161BCC3C00F306E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2D8C2673161BCC3C00F306E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2D8C2676161BCC3C00F306E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,6 +48,7 @@
 		2D8C2651161BCC3C00F306E6 = {
 			isa = PBXGroup;
 			children = (
+				2D37E14716226D360021D9AF /* Apps-preferences-desktop-notification.icns */,
 				2D8C2666161BCC3C00F306E6 /* CmdCompletionNotifier */,
 				2D8C265F161BCC3C00F306E6 /* Frameworks */,
 				2D8C265D161BCC3C00F306E6 /* Products */,
@@ -82,8 +85,8 @@
 		2D8C2666161BCC3C00F306E6 /* CmdCompletionNotifier */ = {
 			isa = PBXGroup;
 			children = (
-				2D8C2672161BCC3C00F306E6 /* ViewControllerLifecycleAppDelegate.h */,
-				2D8C2673161BCC3C00F306E6 /* ViewControllerLifecycleAppDelegate.m */,
+				2D8C2672161BCC3C00F306E6 /* AppDelegate.h */,
+				2D8C2673161BCC3C00F306E6 /* AppDelegate.m */,
 				2D8C2675161BCC3C00F306E6 /* MainMenu.xib */,
 				2D8C2667161BCC3C00F306E6 /* Supporting Files */,
 			);
@@ -157,6 +160,7 @@
 				2D8C266B161BCC3C00F306E6 /* InfoPlist.strings in Resources */,
 				2D8C2671161BCC3C00F306E6 /* Credits.rtf in Resources */,
 				2D8C2677161BCC3C00F306E6 /* MainMenu.xib in Resources */,
+				2D37E14816226D360021D9AF /* Apps-preferences-desktop-notification.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,7 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D8C266D161BCC3C00F306E6 /* main.m in Sources */,
-				2D8C2674161BCC3C00F306E6 /* ViewControllerLifecycleAppDelegate.m in Sources */,
+				2D8C2674161BCC3C00F306E6 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +263,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CmdCompletionNotifier/CmdCompletionNotifier-Prefix.pch";
 				INFOPLIST_FILE = "CmdCompletionNotifier/CmdCompletionNotifier-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -271,9 +277,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CmdCompletionNotifier/CmdCompletionNotifier-Prefix.pch";
 				INFOPLIST_FILE = "CmdCompletionNotifier/CmdCompletionNotifier-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -298,6 +307,7 @@
 				2D8C267C161BCC3C00F306E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
