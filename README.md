@@ -21,6 +21,11 @@ the notifier with notify.
 
     alias notify=/Applications/CmdCompletionNotifier.app/Contents/MacOS/CmdCompletionNotifier
 
+## Inspiration
+
+This project was inspired by (terminal-notifier)[https://github.com/alloy/terminal-notifier] 
+which lets you deliver general OS X notifications from the command line.
+
 ## License
 
 Licensed under the BSD 2-Clause License. See LICENSE.md for details.
