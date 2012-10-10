@@ -4,10 +4,13 @@
 //
 //  Created by Alex Moffat on 10/2/12.
 //  Copyright (c) 2012 Alex Moffat. All rights reserved.
+//  Licensed under the BSD license. See LICENSE.md for license information.
 //
 
+// NOTE - Uses the "Application is background only" flag in the info.plist so that it runs in the background.
+
 // TODO - What happens when you have multiple instances executing at the same time?
-// TODO - Need a window to display the notification info if the user clicks on a notification.
+// TODO - Shall we have a window to display the notification info if the user clicks on a notification?
 
 #import "AppDelegate.h"
 
@@ -39,6 +42,20 @@ NSString *const CommandCompletionStatus = @"CCS";
         [_dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
     }
     return _dateFormatter;
+}
+
+- (void)printUsage
+{
+    const char *appName = [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleExecutable"] UTF8String];
+    const char *appVersion = [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] UTF8String];
+    printf("%s (%s) is a command-line tool to send an OS X User Notification when a command completes\n" \
+           "\n" \
+           "Usage: %s command to execute\n" \
+           "\n" \
+           "   Where \"command to execute\" is the series of shell commands you want to run.\n" \
+           "   For example \'%s mvn clean install\'\n " \
+           "   Chaining commands and notifying when they all complete is not currently supported.\n",
+           appName, appVersion, appName, appName);
 }
 
 // Create the string representing the command to execute from the arguments passed to the program.
@@ -123,7 +140,6 @@ NSString *const CommandCompletionStatus = @"CCS";
     NSUserNotificationCenter *center = [NSUserNotificationCenter defaultUserNotificationCenter];
     center.delegate = self;
     [center scheduleNotification:userNotification];
-    NSLog(@"Delivered notification %@", informativeText);
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
@@ -138,19 +154,25 @@ NSString *const CommandCompletionStatus = @"CCS";
         NSArray *args = [[NSProcessInfo processInfo] arguments];
         
         // Construct the command from the arguments.
-        NSString *command = [self commandFromArguments:args];
+        NSString *command = [[self commandFromArguments:args] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
-        // Execute the command.
-        NSMutableDictionary *result = [self executeCommand:command];
-        
-        // Remove existing notifications for the same command.
-        [self removeExistingNotifications:result];
-        
-        // Send appropriate notification.
-        [self deliverNotificationForCommandCompletion:result];
-        
-        // Exit with the status of the command we executed.
-        exit([((NSNumber *)result[CommandCompletionStatus]) intValue]);
+        if ([@"" isEqualToString:command]) {
+            // No command so print some usage information.
+            [self printUsage];
+            exit(1);
+        } else {
+            // Execute the command.
+            NSMutableDictionary *result = [self executeCommand:command];
+            
+            // Remove existing notifications for the same command.
+            [self removeExistingNotifications:result];
+            
+            // Send appropriate notification.
+            [self deliverNotificationForCommandCompletion:result];
+            
+            // Exit with the status of the command we executed.
+            exit([((NSNumber *)result[CommandCompletionStatus]) intValue]);
+        }
     }
 }
 
