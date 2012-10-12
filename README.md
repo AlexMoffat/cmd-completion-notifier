@@ -21,6 +21,25 @@ the notifier with notify.
 
     alias notify=/Applications/CmdCompletionNotifier.app/Contents/MacOS/CmdCompletionNotifier
 
+## Usage
+
+Assuming you've setup an alias as described above you can run any single commmand by 
+just preceeding it with notify. For example _notify mvn clean install_. Remember, it's the
+shell that interprets the command so if you write _notify mvn clean install && echo "OK"_
+what happens is that _notify mvn clean install_ runs and then the _echo "OK"_ if the 
+_mvn clean install_ succeeds. If you want
+to notify after both the mvn and echo complete you need to quote the complete combination, for
+example _notify 'mvn clean install && echo "hello"'_.
+
+The notify command returns the completion status of the command it executes. This is why
+_notify mvn clean install && echo "OK"_ only executes the echo command if the _mvn clean install_
+succeeds. 
+
+CmdCompletionNotifier uses the bash shell from /bin/bash to run the commands it executes. However,
+because it executes these commands in a child shell no changes the commands make to the environment
+will be reflected in the parent shell CmdCompletionNotifier is executed from. For example 
+_notify ch someDirectory_ will not change the directory of the shell the notify command is run from.
+
 ## Inspiration
 
 This project was inspired by (terminal-notifier)[https://github.com/alloy/terminal-notifier] 
